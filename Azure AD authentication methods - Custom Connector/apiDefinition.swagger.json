@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Azure AD authentication methods",
-    "description": "Manage Azure AD authentication methods for MFA and SSPR"
+    "description": "Manage Azure AD phone authentication methods for MFA and SSPR"
   },
   "host": "graph.microsoft.com",
   "basePath": "/",
@@ -72,7 +72,9 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-visibility": "important",
+            "description": "Enter the ID or UPN of the user"
           }
         ],
         "x-ms-visibility": "important"
@@ -86,7 +88,8 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-visibility": "important"
           },
           {
             "name": "body",
@@ -98,24 +101,28 @@
                 "phoneNumber": {
                   "type": "string",
                   "description": "For example, +1 5555551234 or +1 5555551234x123 (extension)",
-                  "title": ""
+                  "title": "phone number",
+                  "x-ms-visibility": "important"
                 },
                 "phoneType": {
                   "type": "string",
-                  "description": "phoneType",
-                  "title": "",
+                  "description": "Select the phone type",
+                  "title": "phone type",
                   "enum": [
                     "mobile",
                     "alternateMobile",
                     "office"
-                  ]
+                  ],
+                  "x-ms-visibility": "important"
                 }
               },
               "required": [
                 "phoneType",
                 "phoneNumber"
-              ]
-            }
+              ],
+              "x-ms-visibility": "important"
+            },
+            "x-ms-visibility": "important"
           }
         ],
         "responses": {
@@ -147,7 +154,8 @@
               }
             }
           }
-        }
+        },
+        "x-ms-visibility": "important"
       }
     },
     "/beta/users/{userID}/authentication/phoneMethods/3179e48a-750b-4051-897c-87b9720928f7/enableSmsSignIn": {
@@ -160,7 +168,8 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Enter the ID or UPN of the user"
           }
         ],
         "responses": {
@@ -221,7 +230,8 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Enter the ID or UPN of the user"
           }
         ],
         "responses": {
@@ -243,7 +253,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Enter the ID of the user"
+            "description": "Enter the ID or UPN of the user"
           },
           {
             "name": "phonemethodID",
@@ -254,7 +264,8 @@
               "e37fc753-ff3b-4958-9484-eaa9425c82bc",
               "b6332ec1-7057-4abe-9331-3d72feddfe41",
               "3179e48a-750b-4051-897c-87b9720928f7"
-            ]
+            ],
+            "description": "e37fc753-ff3b-4958-9484-eaa9425c82bc (office) b6332ec1-7057-4abe-9331-3d72feddfe41 (alternate mobile ) 3179e48a-750b-4051-897c-87b9720928f7 (mobile)"
           }
         ],
         "responses": {
@@ -337,13 +348,20 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Enter the ID or UPN of the user"
           },
           {
             "name": "phonemethodID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Select the phonemethod ID",
+            "enum": [
+              "e37fc753-ff3b-4958-9484-eaa9425c82bc",
+              "b6332ec1-7057-4abe-9331-3d72feddfe41",
+              "3179e48a-750b-4051-897c-87b9720928f7"
+            ]
           }
         ],
         "responses": {
@@ -362,7 +380,8 @@
             "name": "userID",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Enter the ID or UPN of the user"
           },
           {
             "name": "phonemethodID",
@@ -370,33 +389,41 @@
             "required": true,
             "type": "string",
             "description": "Select the phone method ID",
-            "x-ms-summary": ""
+            "x-ms-summary": "",
+            "enum": [
+              "e37fc753-ff3b-4958-9484-eaa9425c82bc",
+              "b6332ec1-7057-4abe-9331-3d72feddfe41",
+              "3179e48a-750b-4051-897c-87b9720928f7"
+            ]
           },
           {
             "name": "body",
             "in": "body",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "phoneNumber": {
                   "type": "string",
-                  "description": "phoneNumber",
-                  "title": ""
+                  "description": "For example, +1 5555551234 or +1 5555551234x123 (extension)",
+                  "title": "phone number",
+                  "x-ms-visibility": "important"
                 },
                 "phoneType": {
                   "type": "string",
-                  "description": "phoneType",
-                  "title": "",
+                  "description": "Select the phoneType",
+                  "title": "phonetype",
                   "enum": [
                     "mobile",
                     "alternateMobile",
                     "office"
-                  ]
+                  ],
+                  "x-ms-visibility": "important"
                 }
               },
               "required": [
-                "phoneNumber"
+                "phoneNumber",
+                "phoneType"
               ]
             }
           }
