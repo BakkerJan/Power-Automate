@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "connectionParameters": {
+      "token": {
+        "type": "oauthSetting",
+        "oAuthSettings": {
+          "identityProvider": "aad",
+          "clientId": "e09ec5d7-80e5-498e-b8c6-61f73284bf4d",
+          "scopes": [],
+          "redirectMode": "Global",
+          "redirectUrl": "https://global.consent.azure-apim.net/redirect",
+          "properties": {
+            "IsFirstParty": "False",
+            "AzureActiveDirectoryResourceId": "https://graph.microsoft.com"
+          },
+          "customParameters": {
+            "loginUri": {
+              "value": "https://login.windows.net"
+            },
+            "tenantId": {
+              "value": "common"
+            },
+            "resourceUri": {
+              "value": "https://graph.microsoft.com"
+            }
+          }
+        }
+      },
+      "token:TenantId": {
+        "type": "string",
+        "metadata": {
+          "sourceType": "AzureActiveDirectoryTenant"
+        },
+        "uiDefinition": {
+          "constraints": {
+            "required": "false",
+            "hidden": "true"
+          }
+        }
+      }
+    },
+    "iconBrandColor": "#007ee5",
+    "capabilities": [],
+    "publisher": "MOD Administrator"
+  }
+}
