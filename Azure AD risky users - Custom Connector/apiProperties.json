@@ -5,7 +5,7 @@
         "type": "oauthSetting",
         "oAuthSettings": {
           "identityProvider": "aad",
-          "clientId": "e09ec5d7-80e5-498e-b8c6-61f73284bf4d",
+          "clientId": "<<ClientID>>",
           "scopes": [],
           "redirectMode": "Global",
           "redirectUrl": "https://global.consent.azure-apim.net/redirect",
@@ -41,6 +41,6 @@
     },
     "iconBrandColor": "#007ee5",
     "capabilities": [],
-    "publisher": "MOD Administrator"
+    "publisher": "Jan Bakker"
   }
 }
